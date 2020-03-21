@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# script/test: Run test suite for application. Optionally pass in a path to an
+#              individual test file to run a single test.
+
+set -e
+
+# cd to project root
+cd "$(dirname "$0")/.."
+
+export PROJECT_NAME="app" RAILS_ENV="test" RACK_ENV="test"
+
+printf "\n===> Setting $RAILS_ENV environment ...\n"
+docker-compose run -e RAILS_ENV=$RAILS_ENV app rails db:environment:set
+
+# setup test database
+printf "\n===> Migrating $RAILS_ENV database ...\n"
+printf "\n*************************************************************"
+printf "\n********************** MIGRATION NOTE ***********************"
+printf "\n**        Script assumes database is already created       **"
+printf "\n**                                                         **"
+printf "\n**     Run the following command if error encountered      **"
+printf "\n**                                                         **"
+printf "\n** docker-compose run -e RAILS_ENV=$RAILS_ENV app rake db:create **"
+printf "\n**                                                         **"
+printf "\n*************************************************************"
+printf "\n*************************************************************"
+docker-compose run -e RAILS_ENV=$RAILS_ENV app rake db:drop db:create db:migrate
+
+# run tests
+printf "\n===> Running tests ...\n"
+
+if [ -n "$1" ]; then
+  # pass arguments to test call. This is useful for calling a single test.
+  docker-compose --project-name=$PROJECT_NAME run -e RAILS_ENV=$RAILS_ENV --rm app rspec "$1"
+else
+  docker-compose --project-name=$PROJECT_NAME run -e RAILS_ENV=$RAILS_ENV --rm app rspec
+fi
+
+docker-compose down

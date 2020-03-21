@@ -1,0 +1,8 @@
+---
+:concurrency: <%= ENV.fetch('SIDEKIQ_CONCURRENCY') { 5 } %> # @see http://manuelvanrijn.nl/sidekiq-heroku-redis-calc/
+:url: <%= ENV.fetch('REDIS_URL') { 'redis://localhost:6379/0' } %>
+:queues:
+  - realtime
+  - high
+  - default
+  - low

@@ -1,0 +1,19 @@
+default: &default
+  reaping_frequency: <%= ENV.fetch('DATABASE_REAPING_FREQUENCY') { 10 } %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('DATABASE_CONNECTION_POOL') { 20 } %>
+  url: <%= ENV.fetch('DATABASE_URL') { 'postgres://localhost:5432' } %>
+  database: <%= ENV.fetch('DATABASE_NAME') { "#{App::Config::APP_NAME}_#{Rails.env}" } %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
