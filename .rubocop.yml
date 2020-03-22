@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - '**/*.jbuilder'
     - 'node_modules/**/*'
+    - 'db/schema.rb'
 
 Documentation:
   Enabled: false

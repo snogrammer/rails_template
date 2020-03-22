@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 
 module App
   module Config
-    APP_NAME = 'TODO: Update in config/application.rb'
+    APP_NAME = 'app' # TODO: Update name
     APP_TITLE = 'TODO: Update in config/application.rb'
     DATABASE_URL = ENV.fetch('DATABASE_URL') { "postgres://localhost:5432/#{APP_NAME}_#{Rails.env}" }
     REDIS_URL = ENV.fetch('REDIS_URL') { 'redis://localhost:6379/0' }

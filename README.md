@@ -9,6 +9,12 @@ This repo is a designed to be a Dockerized Rails 6 template:
   - [ActiveAdmin](https://activeadmin.info/)
   - [Devise](https://github.com/heartcombo/devise)
 
+## Setup
+
+  - `bundle`
+  - `yarn install --check-files`
+  - `Find/replace all TODO`
+
 ### Dependencies
 
 This service has dependencies on the following services.
@@ -40,7 +46,7 @@ To start the application using docker compose locally:
 
 | Variable       |  Description   | Default                 |
 | ---------------|:---------------|:-----------------------:|
-| `APP_NAME`     | App name       | TODO
+| `APP_NAME`     | App name       | app
 | `APP_TITLE`     | App title      | TODO
 | `DATABASE_URL`  | Database URL  | postgres://localhost:5432/app_development
 | `DB_CONNECT_TIMEOUT` | Db connect timeout | 10
