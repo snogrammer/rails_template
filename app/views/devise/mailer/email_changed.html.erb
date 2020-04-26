@@ -1,0 +1,28 @@
+<div class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        Account Email Updated
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="container is-fluid">
+  <div class="columns is-centered is-mobile">
+    <div class="column">
+      <div class="email-details">
+        <p>
+          Your email has been chnaged to <strong><%= @resource.try(:unconfirmed_email?) ? @resource.unconfirmed_email : @resource.email %></strong>.
+        </p>
+
+
+        <div class="notification is-danger">
+          <p>
+            Please contact support if you did not make these changes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

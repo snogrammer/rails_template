@@ -1,0 +1,18 @@
+@import "bulma";
+
+body {
+  background-color: $grey-light;
+}
+
+.email-main-container {
+  padding: $size-3;
+  background-color: $white;
+}
+
+.email-details {
+  padding: $size-1 $size-5 ;
+}
+
+.email-action-button-container {
+  padding: $size-1;
+}

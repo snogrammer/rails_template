@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     authenticate_user!
     return if current_user.admin?
 
-    redirect_to root_path, flash: { alert: 'You are not allowed to do that.' }
+    redirect_to root_path, flash: { alert: "Whoops! We don't know where that path goes ¯\\_(ツ)_/¯" }
   end
 
   protected

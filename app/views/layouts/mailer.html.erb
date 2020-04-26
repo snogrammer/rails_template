@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html" />
+
+    <%= stylesheet_link_tag :mailer, media: "all" %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="email-main-container">
+      <div class="container is-fluid">
+        <div class="columns is-centered is-mobile">
+          <div class="column is-two-thirds">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

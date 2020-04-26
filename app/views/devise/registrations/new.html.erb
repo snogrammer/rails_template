@@ -1,0 +1,71 @@
+<div class="container is-fluid" id="registrations">
+  <div class="columns is-centered is-mobile">
+    <div id="registrations-column" class="column is-four-fifths-mobile is-two-thirds-tablet is-half-desktop">
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title has-text-centered">
+              Sign up
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <div id="registrations-column-form">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+
+            <p class="control has-icons-left has-icons-right">
+              <%= f.input_field :email, required: true, autofocus: true, autocomplete: "email", class: "input" %>
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+
+            <%= f.full_error :email, class: "help is-danger" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+
+            <p class="control has-icons-left">
+              <%= f.input_field :password, required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          autocomplete: "new-password", class: "input" %>
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+
+            <%= f.full_error :password, class: "help is-danger" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, class: "label" %>
+
+            <p class="control has-icons-left">
+              <%= f.input_field :password_confirmation, required: true, autocomplete: "new-password", class: "input" %>
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+
+            <%= f.full_error :password_confirmation, class: "help is-danger" %>
+          </div>
+
+          <div class="field">
+            <p class="control" id="registrations-column-form-submit-button">
+              <%= f.button :submit, "Sign up", class: "button is-primary is-fullwidth is-rounded"  %>
+            </p>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

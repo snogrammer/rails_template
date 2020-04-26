@@ -15,6 +15,7 @@ gem 'rails',             '~> 6.0'
 gem 'redis-rails',       '~> 5.0'
 gem 'responders',        '~> 3.0'
 gem 'sidekiq',           '~> 6.0'
+gem 'simple_form',       '~> 5.0'
 gem 'validates_email_format_of', '~> 1.6'
 gem 'webpacker', '~> 4.2'
 
@@ -25,7 +26,7 @@ gem 'devise', '~> 4.7'
 
 # styles
 gem 'bulma-rails', '~> 0.8.0'
-gem 'foundation_emails', '~> 2.2'
+gem 'premailer-rails', '~> 1.11'
 
 group :development, :test do
   gem 'factory_bot_rails',  '~> 5.1'

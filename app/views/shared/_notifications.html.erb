@@ -1,0 +1,13 @@
+<div class="container notifications-container is-fluid <%= 'is-hidden' if flash.blank? %>">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "notification app-notifications is-#{notification_type(name)}" do %>
+          <button class="delete"></button>
+
+          <%= msg %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

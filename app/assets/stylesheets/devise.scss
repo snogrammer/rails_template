@@ -1,0 +1,15 @@
+#registrations, #passwords {
+  padding-top: $size-1;
+}
+
+#registrations-column {
+  background-color: $white;
+  padding: $size-6;
+}
+
+#registrations-column-form, #registrations-column-form-submit-button,
+#registration-edit-account-deletion-container, #registrations-edit-passwords,
+#registrations-edit-update-password, #passwords-column-form, #unlocks-column-form,
+#confirmations-column-form {
+  padding: $size-3;
+}

@@ -1,0 +1,25 @@
+<div class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        Account Confirmation
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="container is-fluid">
+  <div class="columns is-centered is-mobile">
+    <div class="column">
+      <div class="email-details">
+        <p>
+          Welcome <%= @email %>! Please confirm your email address to verify your account.
+        </p>
+
+        <div class="email-action-button-container">
+          <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: "button is-primary is-fullwidth is-rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

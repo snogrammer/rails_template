@@ -303,6 +303,9 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
+    simple_form (5.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -370,6 +373,7 @@ DEPENDENCIES
   shoulda-callback-matchers (~> 1.1)
   shoulda-matchers (~> 3.1)
   sidekiq (~> 6.0)
+  simple_form (~> 5.0)
   simplecov (~> 0.16)
   spring
   spring-watcher-listen (~> 2.0)

@@ -14,6 +14,7 @@ This repo is a designed to be a Dockerized Rails 6 template:
   - `bundle`
   - `yarn install --check-files`
   - `Find/replace all TODO`
+  - `docker-compose up --build`
 
 ### Dependencies
 

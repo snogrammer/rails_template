@@ -1,0 +1,25 @@
+<% if Rails.env.development? %>
+  <div class="developer-pane" style="padding:2rem;">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <article class="message">
+          <div class="message-header">
+            <p>Developer Pane</p>
+          </div>
+          <div class="message-body">
+            <% params.each do |key, value| %>
+              <div class="columns">
+                <div class="column is-one-third">
+                  <%= key %>
+                </div>
+                <div class="column">
+                  <%= value %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+<% end %>

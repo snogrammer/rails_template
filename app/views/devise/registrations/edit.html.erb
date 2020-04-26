@@ -1,0 +1,124 @@
+<div class="container is-fluid" id="registrations" data-controller="notification">
+  <div class="columns is-centered">
+    <div id="registrations-column" class="column is-four-fifths is-two-thirds-tablet is-half-desktop">
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title has-text-centered">
+              Edit Account
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <div id="registrations-column-form">
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="notification is-warning">
+              <button class="delete"></button>
+
+              Account confirmation pending for <strong><%= resource.unconfirmed_email %></strong>
+            </div>
+        <% end %>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+
+            <p class="control has-icons-left has-icons-right">
+              <%= f.input_field :email, required: true, autofocus: true, autocomplete: "email", class: "input" %>
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+
+            <%= f.full_error :email, class: "help is-danger" %>
+          </div>
+
+          <div id="registrations-edit-passwords">
+            <%= link_to "Change password", "#", id: "registration-edit-password-button", class: "button is-fullwidth is-rounded" %>
+
+            <div class="toggleable" id="registrations-edit-update-password">
+              <div class="notification">
+                <div class="field">
+                  <%= f.label :password, class: "label" %>
+
+                  <p class="control has-icons-left">
+                    <%= f.input_field :password, required: false, autocomplete: "new-password", class: "input" %>
+
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+
+                  <%= f.hint "Leave blank to not change password", class: "help" %>
+                  <%= f.full_error :password, class: "help is-danger" %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password_confirmation, class: "label" %>
+
+                  <p class="control has-icons-left">
+                    <%= f.input_field :password_confirmation, required: false, autocomplete: "new-password", class: "input" %>
+
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+
+                  <%= f.full_error :password_confirmation, class: "help is-danger" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :current_password, class: "label" %>
+
+            <p class="control has-icons-left">
+              <%= f.input_field :current_password, required: true, autocomplete: "current-password", class: "input" %>
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+
+            <%= f.hint "Password confirmation needed for changes", class: "help" %>
+            <%= f.full_error :current_password, class: "help is-danger" %>
+          </div>
+
+          <div class="field">
+            <p class="control" id="registrations-column-form-submit-button">
+              <%= f.button :submit, "Update Account", class: "button is-primary is-fullwidth is-rounded"  %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="columns">
+        <div class="column">
+          <%= link_to "Back", :back, class: "button is-primary is-fullwidth is-rounded is-light" %>
+        </div>
+
+        <div class="column">
+          <%= link_to "Close my account", "#registration-edit-account-delete", id: "registration-edit-account-delete-button", class: "button is-danger is-fullwidth is-rounded is-light" %>
+        </div>
+      </div>
+
+      <div id="registration-edit-account-delete" class="has-text-centered toggleable">
+        <article class="message is-danger">
+          <div class="message-body">
+            <strong>Warning!</strong> Account deletion is permanant and can not be recovered.
+
+            <div class="is-centered" id="registration-edit-account-deletion-container">
+              <%= link_to "Delete My Account", registration_path(resource_name),
+                  data: { confirm: "Are you sure?" }, method: :delete,
+                  class: "button is-danger is-two-thirds is-rounded" %>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
